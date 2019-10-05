@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cuaderno_campo_predio,cuaderno_campo.predio,model_cuaderno_campo_predio,,1,1,1,1
+access_cuaderno_campo_riesgo,cuaderno_campo.riesgo,model_cuaderno_campo_riesgo,,1,1,1,1
+access_cuaderno_campo_tipo_evaluacion,cuaderno_campo.tipo_evaluacion,model_cuaderno_campo_tipo_evaluacion,,1,1,1,1
+access_cuaderno_campo_evaluacion_riesgo,cuaderno_campo.evaluacion_riesgo,model_cuaderno_campo_evaluacion_riesgo,,1,1,1,1
+access_cuaderno_campo_plan_accion,cuaderno_campo.plan_accion,model_cuaderno_campo_plan_accion,,1,1,1,1

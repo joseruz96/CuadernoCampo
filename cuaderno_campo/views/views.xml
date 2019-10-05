@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="cuaderno_campo.list">
+      <field name="name">CuadernoCampo list</field>
+      <field name="model">cuaderno_campo.cuaderno_campo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="cuaderno_campo.action_window">
+      <field name="name">CuadernoCampo window</field>
+      <field name="res_model">cuaderno_campo.cuaderno_campo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="cuaderno_campo.action_server">
+      <field name="name">CuadernoCampo server</field>
+      <field name="model_id" ref="model_cuaderno_campo_cuaderno_campo"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="CuadernoCampo" id="cuaderno_campo.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="cuaderno_campo.menu_1" parent="cuaderno_campo.menu_root"/>
+    <menuitem name="Menu 2" id="cuaderno_campo.menu_2" parent="cuaderno_campo.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="cuaderno_campo.menu_1_list" parent="cuaderno_campo.menu_1"
+              action="cuaderno_campo.action_window"/>
+    <menuitem name="Server to list" id="cuaderno_campo" parent="cuaderno_campo.menu_2"
+              action="cuaderno_campo.action_server"/>
+    -->
+  </data>
+</odoo>

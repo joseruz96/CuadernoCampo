@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>  
+
+    <menuitem name="Cuaderno de Campo" id="cuaderno_campo_menu_root" sequence="450"/>
+
+    <!-- menu categories -->
+    
+    <menuitem name="Menu" id="menu_cuaderno_campo" parent="cuaderno_campo_menu_root"/>
+  
+    
+  </data>
+</odoo>
