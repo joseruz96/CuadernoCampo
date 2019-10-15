@@ -1,0 +1,90 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="cuaderno_campo.lugar_list">
+      <field name="name">Lugar</field>
+      <field name="model">cuaderno_campo.lugar</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="predio_id"/>
+          <field name="nombre"/>
+          <field name="tipo_lugar"/>
+          <field name="superficie"/>
+          <field name="variedad_id"/>
+          <field name="especie"/>
+          <field name="porta_injerto"/>
+          <field name="polinizante"/>
+          <field name="distancia"/>
+          <field name="densidad"/>
+          <field name="año"/>
+          <field name="sistema_c"/>
+          <field name="sistema_r"/>
+
+          <!-- <field name= "estado"/> -->
+        </tree>
+      </field>
+    </record>
+
+    
+
+    
+     <record model="ir.ui.view" id="cuaderno_campo.lugar_form">
+            <field name="name">Lugar</field>
+            <field name="model">cuaderno_campo.lugar</field>
+            <field name="arch" type="xml">
+                <form string="cuaderno_campo form">
+                    <!--<header>
+                        <field name="estado" widget="statusbar" clickable="True"/>
+                    </header> -->
+                    <sheet>
+                        <group col="6">
+                            <field name="predio_id"/>
+                            <field name="nombre"/>
+                            <field name="tipo_lugar"/>
+                            <field name="porta_injerto"/>
+                            <field name="polinizante"/>
+                            <field name="superficie"/>
+                            <field name="distancia"/>
+                            <field name="densidad"/>
+                            <field name="año"/>
+                        </group>
+                        <group col="4"> 
+                            <field name="variedad_id"/>
+                            <field name="especie"/>
+                            <field name="sistema_c"/>
+                            <field name="sistema_r"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="cuaderno_campo_lugar_action_window">
+      <field name="name">Lista Lugar</field>
+      <field name="res_model">cuaderno_campo.lugar</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <record model="ir.actions.server" id="cuaderno_campo_lugar_action_server">
+      <field name="name">cuaderno_campo server</field>
+      <field name="model_id" ref="model_cuaderno_campo_lugar"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="Lugar" id="cuaderno_campo_lugar" parent="menu_cuaderno_campo" action="cuaderno_campo_lugar_action_window"/>
+
+  </data>
+</odoo>

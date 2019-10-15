@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="cuaderno_campo.embalaje_producto_list">
+      <field name="name">Embalaje de Productos</field>
+      <field name="model">cuaderno_campo.embalaje_producto</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="especie"/>
+          <field name="variedad_id"/>
+          <field name="packing_id"/>
+          <field name="id"/>
+          <field name="fecha"/>
+          <field name="lugar_id"/>
+          <field name="num_recepcion"/>
+          <field name="envase"/>
+          <field name="cantidad"/>
+          <field name="observacion"/>
+          <field name="despacho_producto_id"/>
+
+          <!-- <field name= "estado"/> -->
+        </tree>
+      </field>
+    </record>
+
+    
+
+    
+     <record model="ir.ui.view" id="cuaderno_campo.embalaje_producto_form">
+            <field name="name">Embalaje de Productos</field>
+            <field name="model">cuaderno_campo.embalaje_producto</field>
+            <field name="arch" type="xml">
+                <form string="cuaderno_campo form">
+                    <!--<header>
+                        <field name="estado" widget="statusbar" clickable="True"/>
+                    </header> -->
+                    <sheet>
+                        <group col="4">
+                            <field name="especie"/>
+                            <field name="variedad_id"/>
+                            <field name="packing_id"/>
+                            <field name="id"/>
+                            <field name="fecha"/>
+                            <field name="lugar_id"/>
+                            <field name="num_recepcion"/>
+                            <field name="envase"/>
+                            <field name="cantidad"/>
+                            <field name="observacion"/>
+                            <field name="despacho_producto_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="cuaderno_campo_embalaje_producto_action_window">
+      <field name="name">Lista Embalaje de Productos</field>
+      <field name="res_model">cuaderno_campo.embalaje_producto</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <record model="ir.actions.server" id="cuaderno_campo_embalaje_producto_action_server">
+      <field name="name">cuaderno_campo server</field>
+      <field name="model_id" ref="model_cuaderno_campo_embalaje_producto"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="Embalaje de Productos" id="cuaderno_campo_embalaje_producto" parent="menu_cuaderno_campo" action="cuaderno_campo_embalaje_producto_action_window"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="cuaderno_campo.especie_list">
+      <field name="name">Especies</field>
+      <field name="model">cuaderno_campo.especie</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="nombre"/>
+
+          <!-- <field name= "estado"/> -->
+        </tree>
+      </field>
+    </record>
+
+    
+
+    
+     <record model="ir.ui.view" id="cuaderno_campo.especie_form">
+            <field name="name">Especies</field>
+            <field name="model">cuaderno_campo.especie</field>
+            <field name="arch" type="xml">
+                <form string="cuaderno_campo form">
+                    <!--<header>
+                        <field name="estado" widget="statusbar" clickable="True"/>
+                    </header> -->
+                    <sheet>
+                        <group col="2">
+                            <field name="nombre"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="cuaderno_campo_especie_action_window">
+      <field name="name">Lista Especies</field>
+      <field name="res_model">cuaderno_campo.especie</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <record model="ir.actions.server" id="cuaderno_campo_especie_action_server">
+      <field name="name">cuaderno_campo server</field>
+      <field name="model_id" ref="model_cuaderno_campo_especie"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="Especie" id="cuaderno_campo_especie" parent="menu_cuaderno_campo" action="cuaderno_campo_especie_action_window"/>
+
+  </data>
+</odoo>

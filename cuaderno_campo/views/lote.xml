@@ -1,0 +1,64 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="cuaderno_campo.lote_list">
+      <field name="name">Lote</field>
+      <field name="model">cuaderno_campo.lote</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="unidad"/>
+
+          <!-- <field name= "estado"/> -->
+        </tree>
+      </field>
+    </record>
+
+    
+
+    
+     <record model="ir.ui.view" id="cuaderno_campo.lote_form">
+            <field name="name">Lote</field>
+            <field name="model">cuaderno_campo.lote</field>
+            <field name="arch" type="xml">
+                <form string="cuaderno_campo form">
+                    <!--<header>
+                        <field name="estado" widget="statusbar" clickable="True"/>
+                    </header> -->
+                    <sheet>
+                        <group col="4">
+                            <field name="unidad"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="cuaderno_campo_lote_action_window">
+      <field name="name">Lista Lote</field>
+      <field name="res_model">cuaderno_campo.lote</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <record model="ir.actions.server" id="cuaderno_campo_lote_action_server">
+      <field name="name">cuaderno_campo server</field>
+      <field name="model_id" ref="model_cuaderno_campo_lote"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="Lote" id="cuaderno_campo_lote" parent="menu_cuaderno_campo" action="cuaderno_campo_lote_action_window"/>
+
+  </data>
+</odoo>

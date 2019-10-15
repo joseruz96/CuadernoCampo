@@ -30,15 +30,19 @@
                         <field name="estado" widget="statusbar" clickable="True"/>
                     </header> -->
                     <sheet>
-                        <group col="4">
+                        <group col="6">
                             <field name="predio_id"/>
-
                             <field name="ubicacion"/>
                             <field name="fecha"/>
+                        </group>
+                        <group col="4">
                             <field name="riesgo_id"/>
                             <field name="tipo_evaluacion_id"/>
+                        </group>
+                        <group col="2">
                             <field name="informacion"/>
                         </group>
+
                     </sheet>
                 </form>
             </field>

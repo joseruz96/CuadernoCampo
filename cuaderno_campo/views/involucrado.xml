@@ -1,0 +1,71 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="cuaderno_campo.involucrado_list">
+      <field name="name">Involucrado</field>
+      <field name="model">cuaderno_campo.involucrado</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="nombre"/>
+          <field name="rut"/>
+          <field name="responsabilidad"/>
+          <field name="calificacion_id"/>
+
+          <!-- <field name= "estado"/> -->
+        </tree>
+      </field>
+    </record>
+
+    
+
+    
+     <record model="ir.ui.view" id="cuaderno_campo.involucrado_form">
+            <field name="name">Involucrado</field>
+            <field name="model">cuaderno_campo.involucrado</field>
+            <field name="arch" type="xml">
+                <form string="cuaderno_campo form">
+                    <!--<header>
+                        <field name="estado" widget="statusbar" clickable="True"/>
+                    </header> -->
+                    <sheet>
+                        <group col="4">
+                            <field name="id"/>
+                            <field name="nombre"/>
+                            <field name="rut"/>
+                            <field name="responsabilidad"/>
+                            <field name="calificacion_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="cuaderno_campo_involucrado_action_window">
+      <field name="name">Lista Involucrado</field>
+      <field name="res_model">cuaderno_campo.involucrado</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <record model="ir.actions.server" id="cuaderno_campo_involucrado_action_server">
+      <field name="name">cuaderno_campo server</field>
+      <field name="model_id" ref="model_cuaderno_campo_involucrado"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="Involucrado" id="cuaderno_campo_involucrado" parent="menu_cuaderno_campo" action="cuaderno_campo_involucrado_action_window"/>
+
+  </data>
+</odoo>

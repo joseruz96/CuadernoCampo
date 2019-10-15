@@ -1,0 +1,71 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="cuaderno_campo.detalle_revision_equipo_list">
+      <field name="name">Detalle de Revisión de Equipo</field>
+      <field name="model">cuaderno_campo.detalle_revision_equipo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="equipo_id"/>
+          <field name="estado_revision"/>
+          <field name="reparacion"/>
+          <field name="cantidad_reponer"/>
+        
+          <!-- <field name= "estado"/> -->
+        </tree>
+      </field>
+    </record>
+
+    
+
+    
+     <record model="ir.ui.view" id="cuaderno_campo.detalle_revision_equipo_form">
+            <field name="name">Detalle de Revisión de Equipo</field>
+            <field name="model">cuaderno_campo.detalle_revision_equipo</field>
+            <field name="arch" type="xml">
+                <form string="cuaderno_campo form">
+                    <!--<header>
+                        <field name="estado" widget="statusbar" clickable="True"/>
+                    </header> -->
+                    <sheet>
+                        <group col="4">
+                            <field name="equipo_id"/>
+                            <field name="estado_revision"/>
+                            <field name="reparacion"/>
+                            <field name="cantidad_reponer"/>
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+    <!-- actions opening views on models -->
+ 
+    <record model="ir.actions.act_window" id="cuaderno_campo_detalle_revision_equipo_action_window">
+      <field name="name">Lista Detalle de Revisión de Equipo</field>
+      <field name="res_model">cuaderno_campo.detalle_revision_equipo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <record model="ir.actions.server" id="cuaderno_campo_detalle_revision_equipo_action_server">
+      <field name="name">cuaderno_campo server</field>
+      <field name="model_id" ref="model_cuaderno_campo_detalle_revision_equipo"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="Detalle de Revisión de Equipo" id="cuaderno_campo_detalle_revision_equipo" parent="menu_cuaderno_campo" action="cuaderno_campo_detalle_revision_equipo_action_window"/>
+
+  </data>
+</odoo>
