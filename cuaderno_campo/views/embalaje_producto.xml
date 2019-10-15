@@ -77,7 +77,7 @@
       </field>
     </record>
 
-    <menuitem name="Embalaje de Producto" id="cuaderno_campo_embalaje_producto" parent="menu_cuaderno_campo" action="cuaderno_campo_embalaje_producto_action_window"/>
+    <menuitem name="Embalaje de Productos" id="cuaderno_campo_embalaje_producto" parent="menu_cuaderno_campo" action="cuaderno_campo_embalaje_producto_action_window"/>
 
   </data>
 </odoo>
